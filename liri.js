@@ -1,8 +1,11 @@
+
 require("dotenv").config();
 
 var keys = require("./keys");
 var request = require("request");
 var moment = require("moment");
+var Spotify = require("node-spotify-api");
+var fs = require("fs");
 
 var spotify = new Spotify(keys.spotify);
 
@@ -29,7 +32,7 @@ var getSpotify = function (songName) {
 
       var songs = data.tracks.items;
 
-      for (var i = 0; i < songs.length; i++) {
+      for (var i = 0; i < 10; i++) {
         console.log(i);
         console.log("artist(s): " + songs[i].artists.map(getArtistNames));
         console.log("song name: " + songs[i].name);
@@ -43,7 +46,7 @@ var getSpotify = function (songName) {
 
 var getMovie = function (movieName) {
     if (movieName === undefined) {
-      movieName = "Mr Nobody";
+      movieName = "Pink Flamingos";
     }
   
     var urlHit =
