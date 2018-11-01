@@ -12,12 +12,17 @@ var spotify = new Spotify(keys.spotify);
 
 var getArtistNames = function (artist) {
   return artist.name;
-};
+}
 
 var getSpotify = function (songName) {
   if (songName === undefined) {
-    songName = "32 Weeks";
-  }
+    spotify.search(
+      {
+        type: "track",
+        query: "32 Weeks"
+      
+  });
+}
 
   spotify.search(
     {
@@ -31,7 +36,6 @@ var getSpotify = function (songName) {
       }
 
       var songs = data.tracks.items;
-
       for (var i = 0; i < 10; i++) {
         console.log(i);
         console.log("artist(s): " + songs[i].artists.map(getArtistNames));
@@ -42,11 +46,11 @@ var getSpotify = function (songName) {
       }
     }
   );
-};
+}
 
 var getMovie = function (movieName) {
     if (movieName === undefined) {
-      movieName = "Pink Flamingos";
+      movieName = "My Dinner With Andre";
     }
   
     var urlHit =
@@ -131,7 +135,7 @@ var getMovie = function (movieName) {
         doWhatItSays();
         break;
       default:
-        console.log("LIRI doesn't know that");
+        console.log("You stumped LIRI. I have dishonored my family.");
     }
   };
   
