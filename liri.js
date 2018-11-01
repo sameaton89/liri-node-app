@@ -86,9 +86,7 @@ var getMovie = function (movieName) {
         for (var i = 0; i < jsonData.length; i++) {
           var show = jsonData[i];
   
-          // Print data about each concert
-          // If a concert doesn't have a region, display the country instead
-          // Use moment to format the date
+    
           console.log(
             show.venue.city +
             "," +
@@ -117,7 +115,7 @@ var getMovie = function (movieName) {
     });
   };
   
-  // Function for determining which command is executed
+ 
   var pick = function (caseData, functionData) {
     switch (caseData) {
       case "concert-this":
@@ -137,11 +135,10 @@ var getMovie = function (movieName) {
     }
   };
   
-  // Function which takes in command line arguments and executes correct function accordingly
+
   var runThis = function (argOne, argTwo) {
     pick(argOne, argTwo);
   };
   
-  // MAIN PROCESS
-  // =====================================
+
   runThis(process.argv[2], process.argv.slice(3).join(" "));
