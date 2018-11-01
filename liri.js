@@ -14,7 +14,7 @@ var getArtistNames = function (artist) {
   return artist.name;
 }
 
-var getSpotify = function (songName) {
+var getMeSpotify = function (songName) {
   if (songName === undefined) {
     spotify.search(
       {
@@ -48,15 +48,13 @@ var getSpotify = function (songName) {
   );
 }
 
-var getMovie = function (movieName) {
-    if (movieName === undefined) {
-      movieName = "My Dinner With Andre";
-    }
+var getMeMovie = function (movieName) {
+
   
-    var urlHit =
-      "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=full&tomatoes=true&apikey=7c625191";
+    var urlQuery =
+      "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=full&tomatoes=true&apikey=7333d518";
   
-    request(urlHit, function (error, response, body) {
+    request(urlQuery, function (error, response, body) {
       if (!error && response.statusCode === 200) {
         var jsonData = JSON.parse(body);
   
@@ -126,10 +124,10 @@ var getMovie = function (movieName) {
         getBands(functionData);
         break;
       case "spotify-this-song":
-        getSpotify(functionData);
+        getMeSpotify(functionData);
         break;
       case "movie-this":
-        getMovie(functionData);
+        getMeMovie(functionData);
         break;
       case "do-what-it-says":
         doWhatItSays();
