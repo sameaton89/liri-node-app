@@ -15,13 +15,8 @@ var getArtistNames = function (artist) {
 }
 
 var getMeSpotify = function (songName) {
-  if (songName === undefined) {
-    spotify.search(
-      {
-        type: "track",
-        query: "32 Weeks"
-      
-  });
+  if (!songName) {
+    songName = "32 Weeks";
 }
 
   spotify.search(
