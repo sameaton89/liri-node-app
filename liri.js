@@ -9,6 +9,15 @@ var fs = require("fs");
 
 var spotify = new Spotify(keys.spotify);
 
+var writeToLog = function(data) {
+  fs.appendFile("log.txt", JSON.stringify(data) + "\n", function(err) {
+    if (err) {
+      return console.log(err);
+    }
+
+    console.log("log.txt was updated!");
+  });
+};
 
 var getArtistNames = function (artist) {
   return artist.name;
@@ -38,9 +47,13 @@ var getMeSpotify = function (songName) {
         console.log("preview song: " + songs[i].preview_url);
         console.log("album: " + songs[i].album.name);
         console.log("-----------------------------------");
+
       }
+      writeToLog(data);
+
     }
   );
+
 }
 
 var getMeMovie = function (movieName) {
@@ -75,7 +88,7 @@ var getMeMovie = function (movieName) {
       if (!error && response.statusCode === 200) {
         var jsonData = JSON.parse(body);
   
-        if (!jsonData.length) {
+        if (response !== 200 && error) {
           console.log("No results found for " + artist);
           return;
         }
