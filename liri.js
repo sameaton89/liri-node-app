@@ -44,7 +44,9 @@ var getMeSpotify = function (songName) {
 }
 
 var getMeMovie = function (movieName) {
-
+  if (!movieName) {
+    movieName = "My Dinner With Andre";
+  }
   
     var urlQuery =
       "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=full&tomatoes=true&apikey=7333d518";
