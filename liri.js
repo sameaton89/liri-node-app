@@ -113,22 +113,23 @@ var getMeMovie = function (movieName) {
     });
   };
   
-  var doWhatItSays = function () {
-    fs.readFile("random.txt", "utf8", function (error, data) {
-      console.log(data);
+  var pickItUp = function () {
+    fs.readFile("random.txt", "utf8", function (err, response) {
+      if (err) throw err;
+      console.log(response);
   
-      var dataArr = data.split(",");
+      var dataArr = response.split(",");
   
       if (dataArr.length === 2) {
-        pick(dataArr[0], dataArr[1]);
+        choose(dataArr[0], dataArr[1]);
       } else if (dataArr.length === 1) {
-        pick(dataArr[0]);
+        choose(dataArr[0]);
       }
     });
   };
   
  
-  var pick = function (caseData, functionData) {
+  var choose = function (caseData, functionData) {
     switch (caseData) {
       case "concert-this":
         getBands(functionData);
@@ -139,8 +140,8 @@ var getMeMovie = function (movieName) {
       case "movie-this":
         getMeMovie(functionData);
         break;
-      case "do-what-it-says":
-        doWhatItSays();
+      case "pick-it-up":
+        pickItUp();
         break;
       default:
         console.log("You stumped LIRI. I have dishonored my family.");
@@ -149,7 +150,7 @@ var getMeMovie = function (movieName) {
   
 
   var runThis = function (argOne, argTwo) {
-    pick(argOne, argTwo);
+    choose(argOne, argTwo);
   };
   
 
