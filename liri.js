@@ -87,8 +87,8 @@ var getMeMovie = function (movieName) {
     request(queryURL, function (error, response, body) {
       if (!error && response.statusCode === 200) {
         var jsonData = JSON.parse(body);
-      }
-        else {
+        
+        if (response !== 200 && error) {
           console.log("No results found for " + artist);
           return;
         }
@@ -109,7 +109,8 @@ var getMeMovie = function (movieName) {
             moment(show.datetime).format("MM/DD/YYYY")
           );
         }
-      });
+      }
+    });
   };
   
   var pickItUp = function () {
