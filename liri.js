@@ -25,7 +25,7 @@ var getArtistNames = function (artist) {
 
 var getMeSpotify = function (songName) {
   if (!songName) {
-    songName = "32 Weeks";
+    songName = "Mekons 32 Weeks";
 }
 
   spotify.search(
@@ -87,8 +87,8 @@ var getMeMovie = function (movieName) {
     request(queryURL, function (error, response, body) {
       if (!error && response.statusCode === 200) {
         var jsonData = JSON.parse(body);
-  
-        if (response !== 200 && error) {
+      }
+        else {
           console.log("No results found for " + artist);
           return;
         }
@@ -109,8 +109,7 @@ var getMeMovie = function (movieName) {
             moment(show.datetime).format("MM/DD/YYYY")
           );
         }
-      }
-    });
+      });
   };
   
   var pickItUp = function () {
