@@ -26,10 +26,12 @@ LIRI works in similar fashion for all the remaining commands.
 
 ### Search for concert dates
 <img src="third.png" height="70%" width="70%">
-'node liri.js concert-this'
+
+`node liri.js concert-this`
 
 ### Search OMDB
 <img src="fourth.png" height="70%" width="70%">
+
 `node liri.js movie-this`
 
 ### Pick it up! Pick it up!
