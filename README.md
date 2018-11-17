@@ -15,26 +15,28 @@ Run `npm install` to install all the dependencies listed below.
 Once inside the parent directory, LIRI can be accessed through the command line. Simply enter `node liri.js` and pair this with one of four commands. For instance, `node liri.js spotify-this-song` allows the user to search the Spotify API, returning the top ten results with a 30-second preview (if available). Whereas `node liri.js spotify-this-song red red wine` yields, among others, one of the most dire songs in existence, a command sent without a query by default returns "32 Weeks," an unlistenable screed that LIRI would very much appreciate if she/he comprehended life's finitude.
 
 #### Fig. 1
-![Figure 1](first.png)
+<img src="first.png" height="70%" width="70%">
 Fortunately for you, Spotify doesn't offer a preview of "Red Red Wine."
 
 
 #### Fig. 2
-![Figure 2](second.png)
+<img src="second.png" height="70%" width="70%">
 
 LIRI works in similar fashion for all the remaining commands.
 
 ### Search for concert dates
-![concert-this](third.png)
+<img src="third.png" height="70%" width="70%">
 'node liri.js concert-this'
 
 ### Search OMDB
-![movie-this](fourth.png)
+<img src="fourth.png" height="70%" width="70%">
 `node liri.js movie-this`
 
 ### Pick it up! Pick it up!
-![pick-it-up](fifth.png)
+<img src="fifth.png" height="70%" width="70%">
+
 `node liri.js pick-it-up`
+
 "Mystery" function drawing upon command listed in random.txt.
 
 All data will be appended to log.txt.
